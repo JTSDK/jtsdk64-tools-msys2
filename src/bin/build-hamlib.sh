@@ -59,16 +59,16 @@ script-header () {
 	echo -e ${C_C}" JTSDK64 Tools MSYS2 Hamlib Build Script"${C_NC}
 	echo '---------------------------------------------------------------'
 	echo ''
-	echo "Package ......... $PKG_NAME"
-	echo "User ............ $BUILDER"
-	echo "CPU Count ....... $CPUS"
-	echo "QT Version ...... $QTV"
-	echo "SRC Dir ......... $SRCD"
-	echo "Build Dir ....... $BUILDD"
-	echo "Install Prefix .. $PREFIX"
-	echo "Libusb Include .. $LIBUSBINC"
-	echo "Libusb DLL ...... $LIBUSBD"
-	echo "Tool Chain ...... $TC"
+	echo " Package ......... $PKG_NAME"
+	echo " User ............ $BUILDER"
+	echo " CPU Count ....... $CPUS"
+	echo " QT Version ...... $QTV"
+	echo " SRC Dir ......... $SRCD"
+	echo " Build Dir ....... $BUILDD"
+	echo " Install Prefix .. $PREFIX"
+	echo " Libusb Include .. $LIBUSBINC"
+	echo " Libusb DLL ...... $LIBUSBD"
+	echo " Tool Chain ...... $TC"
 	sleep 1
 }
 
