@@ -34,19 +34,17 @@ install:
 	@echo '---------------------------------------------'
 	@echo ''
 	@${MKDIR} /home/$(USER)/{bin,src}
-	
-	# Install scripts
+	@echo '* Installing Scripts'
 	@for f in $(SCRIPTS) ; do \
 	echo " Installing $$f" ; \
 	${INSTALL} -m 755 $$f /home/$(USER)/bin ; \
 	done
-	
-	# Install docs
+	@echo ''
+	@echo "* Installing Docs'
 	@for f in $(DOCS) ; do \
 	echo " Installing Doc $$f" ; \
 	${INSTALL} -m 755 $$f /home/$(USER)/docs ; \
 	done
-
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}
 
@@ -59,17 +57,16 @@ uninstall:
 	@echo '---------------------------------------------'
 	@echo ''
 
-	# Remove Scripts
+	@echo '* Removing Scripts'
 	@for f in $(SCRIPTS) ; do \
 	echo " Removing $$f" ; \
 	${RM} /home/$(USER)/bin/$$f ; \
 	done
-
-	# Remove Docs
+	@echo ''
+	@echo '* Removing Docs'
 	@for f in $(DOCSS) ; do \
 	echo " Removing Doc $$f" ; \
 	${RM} /home/$(USER)/docs/$$f ; \
 	done
-
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}
