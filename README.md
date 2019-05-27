@@ -100,15 +100,15 @@ This concludes initial build of Hamlib.
 ## Automated Script Sourcing
 
 If you installed `JTSDK64-Tools` using `InnoSetup` installer, this step may not be required as the modifications were made to the skeleton
-shell scripts before packaging. If however, you've re-installed MSYS2, or somehow replaces your `/home/$USER/.bashrc_profile` file, perform the following steps to source the `jtsdk_setup.sh` file each time you open MSYS2.
+shell scripts before packaging. If however, you've re-installed MSYS2, or somehow replaced your `/home/$USER/.bashrc_profile` file, perform the following steps to source the `jtsdk_setup.sh` each time you open MSYS2.
 
 1. With a good text editor: `VSCODE, Notepad++, Sublime, etc` browse to and open the following file, note: $USER is your PC user name:
 
 ```bash
 # Edit the following file
-/home/$USER/.bashrc_profile
+(C|D):/JTSDK64-Tools/tools/msys64/home/$USER/.bashrc_profile
 
-# Add the following lines to the bottom of the your .bashrc_profile file
+# Add the following lines to the bottom of .bashrc_profile
 
 if [ -d "${HOME}/bin" ] ; then
   PATH="${HOME}/bin:${PATH}"
