@@ -119,14 +119,15 @@ update-jtsdk () {
     echo ''
     
     # If the source folder exists, pull and make install
-    if [ -f ~/src/jtsdk64-tools-msys2 ]
+    if [ -f ~/src/jtsdk64-tools-msys2/Makefile ]
     then
         cd ~/src/jtsdk64-tools-msys2
         git pull
         make install
         source ~/bin/jtsdk_setup.sh
     else
-        mkdir -p ~/src && cd ~/src >/dev/null 2>&1
+        rm -rf ~/src/jtsdk64-tools-msys2 > /dev/null 2>&1
+        mkdir -p ~/src >/dev/null 2>&1 && cd ~/src >/dev/null 2>&1
         git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
         cd ~/src/jtsdk64-tools-msys2
         make install
