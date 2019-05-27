@@ -127,6 +127,7 @@ update-jtsdk () {
         git pull
         make install
         source ~/bin/jtsdk_setup.sh
+        cd ~
     else
         echo 'Cloning new repository'
         rm -rf ~/src/jtsdk64-tools-msys2 > /dev/null 2>&1
@@ -136,6 +137,7 @@ update-jtsdk () {
         cd ~/src/jtsdk64-tools-msys2
         make install
         source ~/bin/jtsdk_setup.sh
+        cd ~
     fi
 
     echo ''
