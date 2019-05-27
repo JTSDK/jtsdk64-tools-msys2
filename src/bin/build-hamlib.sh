@@ -26,6 +26,10 @@
 # Exit on errors
 set -e
 
+# Script Info
+VER="3.1.0 Alpha"
+SCRIPT_NAME="JTSDK64 Tools MSYS2 Hamlib Build Script"
+
 # Foreground colors
 C_R='\033[01;31m'		# red
 C_G='\033[01;32m'		# green
@@ -56,9 +60,14 @@ export PATH="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin:$LIBUSBINC:$LI
 script-header () {
 	echo ''
 	echo '---------------------------------------------------------------'
-	echo -e ${C_C}" JTSDK64 Tools MSYS2 Hamlib Build Script"${C_NC}
+	echo -e ${C_C}" $SCRIPT_NAME v$VER"${C_NC}
 	echo '---------------------------------------------------------------'
 	echo ''
+}
+
+# Function: package data -------------------------------------------------------
+package-data () {
+	echo " Date ............ $TODAY"
 	echo " Package ......... $PKG_NAME"
 	echo " User ............ $BUILDER"
 	echo " CPU Count ....... $CPUS"
@@ -68,6 +77,7 @@ script-header () {
 	echo " Install Prefix .. $PREFIX"
 	echo " Libusb Include .. $LIBUSBINC"
 	echo " Libusb DLL ...... $LIBUSBD"
+	echo " Package Config... $PREFIX/lib/pkgconfig/hamlib.pc"
 	echo " Tool Chain ...... $TC"
 }
 
@@ -75,7 +85,7 @@ script-header () {
 tool-check () {
 	echo ''
 	echo '---------------------------------------------------------------'
-	echo -e ${C_Y}" CHECKING TOOL-CHAIN ( QT $QTV Enabled )"${C_NC}
+	echo -e ${C_Y}" CHECKING TOOL-CHAIN [ QT $QTV ]"${C_NC}
 	echo '---------------------------------------------------------------'
 
 	# Setup array and perform simple version checks
@@ -117,6 +127,7 @@ tool-check () {
 cd
 clear
 script-header
+package-date
 tool-check
 
 if [ "$?" = "0" ];
@@ -134,7 +145,7 @@ fi
 
 # Start Git clone
 echo '---------------------------------------------------------------'
-echo -e ${C_Y} ' CLONING G4WJS HAMLIB3'${C_NC}
+echo -e ${C_Y} " CLONING G4WJS [ $PKG_NAME ]"${C_NC}
 echo '---------------------------------------------------------------'
 echo ''
 mkdir -p "$BUILDD"
@@ -304,12 +315,7 @@ echo '----------------------------------------------------------------'
 echo -e ${C_G} " FINISHED INSTALLING [ $PKG_NAME ]"${C_NC}
 echo '----------------------------------------------------------------'
 echo ''
-touch "$PREFIX/build-date-$TODAY"
-echo "  Tool-Chain........: QT $QTV"
-echo "  Source Location...: $SRCD/src"
-echo "  Build Location....: $SRCD/build"
-echo "  Install Location..: $PREFIX"
-echo "  Package Config....: $PREFIX/lib/pkgconfig/hamlib.pc"
+package-data
 echo ''
 
 # exit script
