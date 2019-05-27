@@ -11,20 +11,22 @@ the published InnoSetup Windows Installer from Sourceforge.
 
 ## Installation and Setup
 
-The following steps should be performed in order assuming a new installaiton
-of `JTSDK64 Tools`.
+The following steps should be performed in order assuming a new installation
+of `JTSDK64 Tools`. Subsequent runs of each command can be run anytime you
+wish to upgrade packages or re-build Hamlib.
 
 1. [Update MSYS2 Packages](#update-msys2-packages)
-1. [Install hamlib Dependencies](#install-hamlib-dependencies)
+1. [Install Hamlib Dependencies](#install-hamlib-dependencies)
 1. [Build Hamlib](#build-hamlib)
 
-## Command List and Help Screens
+## Command List, Help Screens, and Upgrades
 
-The `JTSDK64-Tools-MSYS2` package provides a number of useful commands and help
-screens.
+The `JTSDK64-Tools-MSYS2` package provides a number of useful commandsand help
+screens. Additional instructions are provided to upgrade `JTSDK63-Tools-MSYS2`.
 
 1. [Command Summary](#command-summary)
 1. [Command Helpers](#command-helpers)
+1. [Upgrade JTSDK64 Tools MSYS2 Scripts](#upgrade-jtsdk64-tools-msys2-scripts)
 
 These lists will be updates as the `JTSDK64-ToolsMSYS2` package is updated.
 
@@ -33,9 +35,6 @@ These lists will be updates as the `JTSDK64-ToolsMSYS2` package is updated.
 After initial installation, often there are several packages that need to be
 upgraded. This is particularly true for the main MSYS2 runtime binaries. This
 function can be run any time you wish to upgrade your MSYS2 
-
->NOTE: This function can be run anytime you wish to upgrade all system packages,
-including the msys2-runtime dll's.
 
 ```bash
 # Open MSYS2 Console, and type the following
@@ -50,8 +49,7 @@ Repeat this step until there are no further updates installed.
 ## Install Hamlib Dependencies
 
 To install the required Hamlib build dependencies, run the following command.
-
->Note: this command can be run at any time you whish to update just the Hamlib
+This command can be run at any time you whish to update just the Hamlib build
 dependencies.
 
 ```bash
@@ -100,7 +98,34 @@ FOR A PARTICULAR PURPOSE.
   Package Config....: /d/JTSDK64-Tools/tools/hamlib/qt/5.12.2/lib/pkgconfig/hamlib.pc
 ```
 
-This concludes initial build of Hamlib.
+## Upgrade JTSDK64 Tools MSYS2 Scripts
+
+To upgrade the `JTSDK64-Tools-MSYS2` scripts, use the following steps.
+
+```bash
+# Open MSYS2 Console, the perform the following
+cd ~/src/jtsdk64-tools-msys2
+git pull
+make install
+
+# To list the help screen, type
+jtsdk-help
+```
+
+If you have removed the package from the src directory, perform a new checkout
+then install.
+
+```bash
+# Open MSYS2 Console, the perform the following
+mkdir -p ~/src
+cd ~/src
+git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
+cd ./jtsdk64-tools-msys2
+make install
+
+# To list the help screen, type
+jtsdk-help
+```
 
 ## Command Summary
 

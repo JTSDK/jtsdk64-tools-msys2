@@ -88,7 +88,7 @@ jtsdk-help () {
     echo '-----------------------------------------------------------'
     echo 'jtsdk-help           Show this help Menu'
     echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
-    echo 'jtsdk-setup          Install Hamlib Buld Dependencies'
+    echo 'jtsdk-setup          Install Hamlib Build Dependencies'
     echo 'build-hamlib         Build Hamlib Libraries and Binaries'
     echo 'update-msys          Upgrade all MSYS2 packages including runtimes'
     echo ''
