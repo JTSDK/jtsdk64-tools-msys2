@@ -108,9 +108,6 @@ tool-check () {
 	echo -e ' Bin Utils ..... '${C_G}"$(ranlib --version |awk 'FNR==1')"${C_NC}
 	echo -e ' Libtool ....... '${C_G}"$(libtool --version |awk 'FNR==1')"${C_NC}
 	echo -e ' Pkg-Config  ... '${C_G}"$(pkg-config --version)"${C_NC}
-	echo -e ' Source Path ... '${C_G}"$SRCD"${C_NC}
-	echo -e ' Build Path .... '${C_G}"$BUILDD"${C_NC}
-	echo -e ' Install Path .. '${C_G}"$PREFIX"${C_NC}
 }
 
 #------------------------------------------------------------------------------#
@@ -125,7 +122,6 @@ tool-check
 
 if [ "$?" = "0" ];
 then
-echo -en " TC Path ......." && echo -e ${C_G}" $TC"${C_NC}
 echo -en " TC Status ....."&& echo -e ${C_G}' OK'${C_NC}
 	echo ''
 else
