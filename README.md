@@ -1,10 +1,10 @@
 # JTSDK64 MSYS2 Script Installation
 
-Installation of of the JTSDK64 MSYS2 Scripts should be performed after you
-have launched the MSYS2 Console at least once prior to attempting this installation.
-
-For a list of all available commands provided by the `JTSDK64 Tools MSYS2 Scripts`
-see the [Command Summary Table](#command-summary) below
+Installation of the `JTSDK64 MSYS2 Scripts` should be performed after you
+have launched the MSYS2 Console at least once prior to attempting this
+installation. For a list of all available commands provided by the
+`JTSDK64 Tools MSYS2 Scripts` see the [Command Summary Table](#command-summary)
+below.
 
 The `JTSDK64 MSYS2 Tools` Environment provides a number of enhanced
 command-line helpers to improve usability within the MSYS2 shell. Most were taken
@@ -36,7 +36,7 @@ installed.
 
 ## Checkout Code and Install
 
-Install `GNU make`, Check out the code from `Github`, and install the scripts.
+Install `GNU make`, checkout out the code from `Github`, and install the scripts.
 
 ```bash
 # Install GNU make
