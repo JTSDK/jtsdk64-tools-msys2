@@ -1,37 +1,57 @@
-# Makefile for Linux
+# Makefile for MSYS2
 #
-# Prerequsists : Microsoft Net Core SDK
+# Prerequsists : MSYS2 Shell Initialization
 
-PROGRAM	:=	JTSDK64-msys2
+PROGRAM	:=	JTSDK64 MSYS2 Scripts
 VERSION	:=	3.1.0
 AUTHOR	:=	Greg Beam, KI7MT
 LICENSE	:=	GPLv3
 BUGS	:=	https://github.com/KI7MT/jtsdk64-msys2/issues
 WEB		:=	https://github.com/KI7MT/jtsdk-msys2
 
-# Script Applications
+# foreground colors
+C_R='\033[01;31m'	# red
+C_G='\033[01;32m'	# green
+C_Y='\033[01;33m'	# yellow
+C_C='\033[01;36m'	# cyan
+C_NC='\033[01;37m'	# no color
+
+# Script Variables
 RM		:=	/usr/bin/rm -f
 MKDIR	:=	/usr/bin/mkdir -p
 CP		:=	/usr/bin/cp -u
-HOME	:=	$HOME
-BINDIR	:=	${HOME}/bin
 INSTALL	:=	install
+USER	:=	$(shell whoami)
+SCRIPTS	:=	$(wildcard ./src/bin/*.sh)
 
+# Install Scripts
 install:
+	@clear ||:
 	@echo ''
-	@echo '---------------------------------------------'
-	@echo "Installing $(PROGRAM) v$(VERSION)"
-	@echo '---------------------------------------------'
-	@echo ''
-	${MKDIR}/{bin,src}
-	@${INSTALL} -m 755 ./src/bin/*.sh ${BINDIR}
-	@echo
 
+	@echo '---------------------------------------------'
+	@echo -e ${C_Y}"Installing $(PROGRAM) v$(VERSION)"${C_NC}
+	@echo '---------------------------------------------'
+	@echo ''
+	@${MKDIR} /home/$(USER)/{bin,src}
+	@for f in $(SCRIPTS) ; do \
+	echo " Installing $$f" ; \
+	${INSTALL} -m 755 $$f /home/$(USER)/bin ; \
+	done
+	@echo
+	@echo -e ${C_C}"Finished"${C_NC}
+
+# Uninstall Scripts
 uninstall:
+	@clear ||:
 	@echo ''
 	@echo '---------------------------------------------'
-	@echo "Uninstalling $(PROGRAM) v$(VERSION)"
+	@echo -e ${C_Y}"Uninstalling $(PROGRAM) v$(VERSION)"${C_NC}
 	@echo '---------------------------------------------'
 	@echo ''
-	${RM} ${BINDIR}/*.sh
-	@echo ''
+	@for f in $(SCRIPTS) ; do \
+	echo " Removing $$f" ; \
+	${RM} /home/$(USER)/bin/$$f ; \
+	done
+	@echo
+	@echo -e ${C_C}"Finished"${C_NC}
