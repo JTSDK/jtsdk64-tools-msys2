@@ -43,14 +43,14 @@ QTV="5.12.2"
 DRIVE=`cygpath -w ~ | head -c 1 | tr '[:upper:]' '[:lower:]'`
 SRCD="$HOME/src/hamlib"
 BUILDD="$SRCD/build"
-PREFIX="/$DRIVE/JTSDK-Tools/tools/hamlib/qt/$QTV"
-LIBUSBINC="/$DRIVE/JTSDK-Tools/tools/libusb/1.0.22/include"
-LIBUSBD="/$DRIVE/JTSDK-Tools/tools/libusb/1.0.22/MinGW64/dll"
-TC="/$DRIVE/JTSDK-Tools/tools/Qt/Tools/mingw730_64/bin"
+PREFIX="/$DRIVE/JTSDK64-Tools/tools/hamlib/qt/$QTV"
+LIBUSBINC="/$DRIVE/JTSDK64-Tools/tools/libusb/1.0.22/include"
+LIBUSBD="/$DRIVE/JTSDK64-Tools/tools/libusb/1.0.22/MinGW64/dll"
+TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
 mkdir -p $HOME/src/hamlib/{build,src} >/dev/null 2>&1
 
 # export tool chain paths
-export PATH="/$DRIVE/JTSDK-Tools/tools/Qt/Tools/mingw730_64/bin:$LIBUSBINC:$LIBUSBD:$PATH"
+export PATH="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin:$LIBUSBINC:$LIBUSBD:$PATH"
 
 # Tool Check Function ----------------------------------------------------------
 tool_check() {
