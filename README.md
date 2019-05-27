@@ -122,6 +122,7 @@ cd ~/src
 git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
 cd ./jtsdk64-tools-msys2
 make install
+source ~/bin/jtsdk_setup.sh
 
 # To list the help screen, type
 jtsdk-help
