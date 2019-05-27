@@ -53,7 +53,7 @@ jtsdk-setup () {
     clear ||:
     echo ''
     echo '---------------------------------------------------------------------'
-    echo -e ${C_Y}"INSTALL JTSDK64_NAME v$JTSDK64_VER PACKAGE LIST"${C_NC}
+    echo -e ${C_Y}"INSTALL $JTSDK64_NAME PACKAGE LIST"${C_NC}
     echo '---------------------------------------------------------------------'
     echo ''
 
