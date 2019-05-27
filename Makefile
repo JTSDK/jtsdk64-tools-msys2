@@ -27,13 +27,12 @@ DOCS	:=	$(wildcard ./src/docs/*.html)
 
 # Install Scripts
 install:
-	@clear ||:
 	@echo ''
 	@echo '---------------------------------------------'
 	@echo -e ${C_Y}"Installing $(PROGRAM) v$(VERSION)"${C_NC}
 	@echo '---------------------------------------------'
 	@echo ''
-	@${MKDIR} /home/$(USER)/{bin,src}
+	@${MKDIR} /home/$(USER)/{bin,src,docs}
 	@echo 'INSTALL SCRIPTS'
 	@for f in $(SCRIPTS) ; do \
 	echo " Installing $$f" ; \
@@ -43,7 +42,7 @@ install:
 	@echo 'INSTALL DOCS'
 	@for f in $(DOCS) ; do \
 	echo " Installing Doc $$f" ; \
-	${INSTALL} -m 755 $$f /home/$(USER)/docs ; \
+	${INSTALL} -m 644 $$f /home/$(USER)/docs ; \
 	done
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}
