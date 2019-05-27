@@ -87,17 +87,17 @@ jtsdk-help () {
     echo 'Command              Description'
     echo '-----------------------------------------------------------'
     echo 'jtsdk-help           Show this help Menu'
-    echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
     echo 'jtsdk-setup          Install Hamlib Build Dependencies'
+    echo 'jtsdk-update         Upgrade JTSDK64 Tools MSYS2 Scripts'
+    echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
     echo 'build-hamlib         Build Hamlib Libraries and Binaries'
     echo 'update-msys          Upgrade all MSYS2 packages including runtimes'
-    echo 'update-jtsdk         Upgrade JTSDK64 Tools MSYS2 Scripts'
     echo ''
 
 }
 
 # Function: Update all MSYS2 Packages including runtimes -----------------------
-update-msys () {
+msys-update () {
 
     clear ||:
     echo ''
@@ -110,7 +110,7 @@ update-msys () {
 }
 
 # Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
-update-jtsdk () {
+jtsdk-update () {
 
     clear ||:
     echo ''

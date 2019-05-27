@@ -38,7 +38,7 @@ function can be run any time you wish to upgrade your MSYS2.
 
 ```bash
 # Open MSYS2 Console, and type the following
-msys2-update
+msys-update
 ```
 
 If any of the msys2 runtime dlls are updated (you will see a message at
@@ -104,7 +104,7 @@ To upgrade the `JTSDK64-Tools-MSYS2` scripts, use the following steps.
 
 ```bash
 # Open MSYS2 Console, the perform the following
-upgrade-jtsdk
+jtsdk-update
 
 # To list the help screen, type
 jtsdk-help
@@ -133,11 +133,11 @@ The following alias commands are available to users after installation.
 | Command       | Description                                      |
 | :------------ |:------------------------------------------------ |
 | jtsdk-help    | Show this help menu                              |
-| jtsdk-version | Show JTSDK64 MSYS2 Version Information           |
 | jtsdk-setup   | Install Hamlib Build Dependencies                |
-| build-hamlib  | Build Hamlib Libraries and Binaries              |
-| update-msys   | Upgrade all MSYS2 packages                       |
 | update-jtsdk  | Upgrade JTSDK64 Tools MSYS2 Scripts              |
+| jtsdk-version | Show JTSDK64 MSYS2 Version Information           |
+| build-hamlib  | Build Hamlib Libraries and Binaries              |
+| msys-update   | Upgrade all MSYS2 packages                       |
 
 ## Command Helpers
 
