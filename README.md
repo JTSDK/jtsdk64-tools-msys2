@@ -134,7 +134,7 @@ The following alias commands are available to users after installation.
 | :------------ |:------------------------------------------------ |
 | jtsdk-help    | Show this help menu                              |
 | jtsdk-setup   | Install Hamlib Build Dependencies                |
-| update-jtsdk  | Upgrade JTSDK64 Tools MSYS2 Scripts              |
+| jtsdk-update  | Upgrade JTSDK64 Tools MSYS2 Scripts              |
 | jtsdk-version | Show JTSDK64 MSYS2 Version Information           |
 | build-hamlib  | Build Hamlib Libraries and Binaries              |
 | msys-update   | Upgrade all MSYS2 packages                       |
