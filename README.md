@@ -1,7 +1,7 @@
 # JTSDK64 MSYS2 Installation
 
 The JTSDK MSYS2 Scripts are pre-installed in the MSYS2 environment when using
-the published InnoSetup Windows Installer from Sourceforge. 
+the published InnoSetup Windows Installer from Sourceforge.
 
 ## Provides
 
@@ -34,7 +34,7 @@ These lists will be updates as the `JTSDK64-ToolsMSYS2` package is updated.
 
 After initial installation, often there are several packages that need to be
 upgraded. This is particularly true for the main MSYS2 runtime binaries. This
-function can be run any time you wish to upgrade your MSYS2 
+function can be run any time you wish to upgrade your MSYS2.
 
 ```bash
 # Open MSYS2 Console, and type the following
@@ -59,7 +59,7 @@ jtsdk-setup
 
 ## Building Hamlib
 
-At the time of the writing, the build script is hard coded to use **Qt version
+At the time of this writing, the build script is hard coded to use **Qt version
 5.12.2 and Mingw64 Tools GCC version 7.3.0**. As additional versions of Qt are
 validated, they will be added as options.
 
@@ -138,7 +138,7 @@ The following alias commands are available to users after installation.
 | jtsdk-version | Show JTSDK64 MSYS2 Version Information           |
 | jtsdk-setup   | Install Hamlib Build Dependencies                |
 | build-hamlib  | Build Hamlib Libraries and Binaries              |
-| update-msys   | Upgrade all MSYS2 packages including runtimes    |
+| update-msys   | Upgrade all MSYS2 packages                       |
 
 ## Command Helpers
 
