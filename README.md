@@ -3,6 +3,18 @@
 Installation of of the JTSDK64 MSYS2 Scripts should be performed after you
 have launched the MSYS2 Console at least once prior to attempting this installation.
 
+For a list of all available commands provided by the `JTSDK64 Tools MSYS2 Scripts`
+see the [Command Summary Table](#command-summary) below
+
+The `JTSDK64 MSYS2 Tools` Environment provides a number of enhanced
+command-line helpers to improve usability within the MSYS2 shell. Most were taken
+from the skeleton `bashrc` file the MSYS2 team provided, but were left commented out.
+For a full listing of improvements, see the [Command Helpers](#command-helpers)
+list below.
+
+NOTE: When working in the MSYS2 Console, you can `Copy & Paste` any of
+the commands listed below to ease the burden of type each line explicitly.
+
 ## Provides
 
 1. Bash function for installing Hamlib build dependencies.
@@ -11,7 +23,7 @@ have launched the MSYS2 Console at least once prior to attempting this installat
 ## Required Dependencies
 
 In order to checkout the the script, you must have `Git` available from the
-MSYS2 Console. If do not, use the following command to install `Git`
+MSYS2 Console. If not, use the following command to install `Git`
 
 ```bash
 # Open MSYS2 Console, then at the prompt, type:
@@ -24,10 +36,15 @@ installed.
 
 ## Checkout Code and Install
 
-Check out the code from `Github`, and install the scripts.
+Install `GNU make`, Check out the code from `Github`, and install the scripts.
 
 ```bash
-# Checkout the code
+# Install GNU make
+pacman -S --needed --noconfirm --disable-download-timeout make
+
+# Make directories, checkout code, and install
+mkdir -p $HOME/src
+cd $HOME/src
 git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
 
 # Change directories and install
@@ -38,8 +55,8 @@ make install
 
 ## Install Hamlib Dependencies
 
-In order to use the automated installation script, you must first source it which
-makes it available in the shell. Instructions to automate process is
+In order to use the automated installation script, you must first source making
+it available in the shell. Instructions to automate this process is
 outlined in [Automated Script Sourcing](#automated-script-sourcing) section
 below.
 
@@ -142,3 +159,35 @@ jtsdk-setup
 build-hamlib
 
 ```
+
+## Command Summary
+
+The following alias commands are available to users after installation.
+
+| Command       | Description                            |
+| :------------ |:-------------------------------------- |
+| jtsdk-help    | Show this help menu      |
+| jtsdk-version | Show JTSDK64 MSYS2 Version Information |
+| jtsdk-setup   | Install Hamlib Build Dependencies      |
+| build-hamlib  | Build Hamlib Libraries and Binaries    |
+
+## Command Helpers
+
+There many ways to improve the usability of virtually any Bash shell. The following
+commands have been enabled when using the `JTSDK64 MSYS2 Scripts`.
+
+| Command  | Switch             | Description                            |
+| :------- | :----------------- |:-------------------------------------- |
+| df       | df -h              | Human readable system information      |
+| du       | du -h              | Human readable disk usage              |
+| less     | less -r            | Raw control characters                 |
+| whence   | type -a            | Where, of a sort                       |
+| grep     | grep --color       | Show differences in color              |
+| egrep    | egrep --color=auto | Show differences in color              |
+| fgrep    | fgrep --color=auto | Show differences in color              |
+| ls       | ls -hF --color=tty | Fancy show files in color              |
+| dir      | ls --color=auto --format=vertical | Show files vertical in color |
+| vdir     | ls --color=auto --format=long | Long format file listing |
+| l        | ls -CF | Shortcut to using ls |
+| ll       | ls -l  | Shortcut to using vidr, or long list |
+| la       | ls -A  | All files long version |
