@@ -43,9 +43,6 @@ jtsdk-version () {
 # Function: install hamlib build dependencies ----------------------------------
 jtsdk-setup () {
 
-    # exit on errors
-    set -e
-
     # make directories
     mkdir -p $HOME/src > /dev/null 2>&1
 
