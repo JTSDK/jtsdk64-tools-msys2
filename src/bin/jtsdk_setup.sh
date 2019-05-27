@@ -90,6 +90,20 @@ jtsdk-help () {
     echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
     echo 'jtsdk-setup          Install Hamlib Buld Dependencies'
     echo 'build-hamlib         Build Hamlib Libraries and Binaries'
+    echo 'update-msys          Upgrade all MSYS2 packages including runtimes'
     echo ''
+
+}
+
+# Function: Update all MSYS2 Packages including runtimes
+update-msys () {
+
+    clear ||:
+    echo ''
+    echo '---------------------------------------------------------------------'
+    echo -e ${C_Y}"UPGRADE MSYS2 ALL MSYS2 PACKAGES"${C_NC}
+    echo '---------------------------------------------------------------------'
+    echo ''
+    pacman -Syuu --needed --noconfirm --disable-download-timeout
 
 }

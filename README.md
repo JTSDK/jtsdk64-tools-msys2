@@ -1,75 +1,63 @@
-# JTSDK64 MSYS2 Script Installation
+# JTSDK64 MSYS2 Installation
 
-Installation of the `JTSDK64 MSYS2 Scripts` should be performed after you
-have launched the MSYS2 Console at least once prior to attempting this
-installation. For a list of all available commands provided by the
-`JTSDK64 Tools MSYS2 Scripts` see the [Command Summary Table](#command-summary)
-below.
-
-The `JTSDK64 MSYS2 Tools` Environment provides a number of enhanced
-command-line helpers to improve usability within the MSYS2 shell. Most were taken
-from the skeleton `bashrc` file the MSYS2 team provided, but were left commented out.
-For a full listing of improvements, see the [Command Helpers](#command-helpers)
-list below.
-
-NOTE: When working in the MSYS2 Console, you can `Copy & Paste` any of
-the commands listed below to ease the burden of type each line explicitly.
+The JTSDK MSYS2 Scripts are pre-installed in the MSYS2 environment when using
+the published InnoSetup Windows Installer from Sourceforge. 
 
 ## Provides
 
 1. Bash function for installing Hamlib build dependencies.
-1. Bash script for building Hamlib from source code.
+1. Bash script for building Hamlib from source code and other useful functions.
+1. Pacman function for upgrading all MSYS2 packages.
 
-## Required Dependencies
+## Installation and Setup
 
-In order to checkout the the script, you must have `Git` available from the
-MSYS2 Console. If not, use the following command to install `Git`
+The following steps should be performed in order assuming a new installaiton
+of `JTSDK64 Tools`.
+
+1. [Update MSYS2 Packages](#update-msys2-packages)
+1. [Install hamlib Dependencies](#install-hamlib-dependencies)
+1. [Build Hamlib](#build-hamlib)
+
+## Command List and Help Screens
+
+The `JTSDK64-Tools-MSYS2` package provides a number of useful commands and help
+screens.
+
+1. [Command Summary](#command-summary)
+1. [Command Helpers](#command-helpers)
+
+These lists will be updates as the `JTSDK64-ToolsMSYS2` package is updated.
+
+## Update MSYS2 Packages
+
+After initial installation, often there are several packages that need to be
+upgraded. This is particularly true for the main MSYS2 runtime binaries. This
+function can be run any time you wish to upgrade your MSYS2 
+
+>NOTE: This function can be run anytime you wish to upgrade all system packages,
+including the msys2-runtime dll's.
 
 ```bash
-# Open MSYS2 Console, then at the prompt, type:
-pacman -S --needed --noconfirm --disable-download-timeout git
-
+# Open MSYS2 Console, and type the following
+msys2-update
 ```
 
-If you get `warning: git-2.21.0-1 is up to date -- skipping`, `Git` is already
-installed.
-
-## Checkout Code and Install
-
-Install `GNU make`, checkout out the code from `Github`, and install the scripts.
-
-```bash
-# Install GNU make
-pacman -S --needed --noconfirm --disable-download-timeout make
-
-# Make directories, checkout code, and install
-mkdir -p $HOME/src
-cd $HOME/src
-git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
-
-# Change directories and install
-cd ./jtsdk64-tools-msys2
-make install
-
-```
+If any of the msys2 runtime dlls are updated (you will see a message at
+the bottom of the screen) close the terminal using the "**X**" in the top-right
+corner of the window, then re-open the MSYS2 Console and run the update again.
+Repeat this step until there are no further updates installed.
 
 ## Install Hamlib Dependencies
 
-In order to use the automated installation script, you must first source making
-it available in the shell. Instructions to automate this process is
-outlined in [Automated Script Sourcing](#automated-script-sourcing) section
-below.
+To install the required Hamlib build dependencies, run the following command.
+
+>Note: this command can be run at any time you whish to update just the Hamlib
+dependencies.
 
 ```bash
-# Source the install script with the following command, type:
-source /home/$USER/bin/jtsdk_setup.sh
-
-# To install build dependencies, type
+# Open MSYS2 Console, then run the following, type:
 jtsdk-setup
 ```
-
-If the script finishes successfully, you should now have all the required MSYS2
-dependencies installed.
 
 ## Building Hamlib
 
@@ -81,13 +69,10 @@ validated, they will be added as options.
 # To build Hamlib, use the following command, type:
 build-hamlib
 ```
-
-## Hamlib Install Locations
-
 If the build finished successfully, the Hamlib libraries and associated binaries
 will be installed to the following Locations:
 
-NOTE: (C|D) denotes the diver letter of your `JTSDK64-Tools` installation. The
+>NOTE: (C|D) denotes the diver letter of your `JTSDK64-Tools` installation. The
 following example shows a `D-Drive Installation`.
 
 ```bash
@@ -117,59 +102,17 @@ FOR A PARTICULAR PURPOSE.
 
 This concludes initial build of Hamlib.
 
-## Automated Script Sourcing
-
-If you installed `JTSDK64-Tools` using the `InnoSetup` installer, this step may not
-be required as the modifications were made to the skeleton shell scripts before
-packaging. If however, you've re-installed MSYS2, or somehow replaced your
-`/home/$USER/.bash_profile` file, perform the following steps to source the
-`jtsdk_setup.sh` script each time you open MSYS2.
-
-1. With a good text editor: `VSCODE, Notepad++, Sublime, etc` browse to and open
-the following file. Note: $USER denotes your PC user name:
-
-```bash
-# Edit the following file
-(C|D):/JTSDK64-Tools/tools/msys64/home/$USER/.bash_profile
-
-# Add the following lines to the bottom of .bash_profile
-
-if [ -d "${HOME}/bin" ] ; then
-  PATH="${HOME}/bin:${PATH}"
-fi
-
-if [ -f "${HOME}/bin/jtsdk_setup.sh" ] ; then
-  source "${HOME}/bin/jtsdk_setup.sh"
-fi
-
-# Save, then exit the file.
-
-```
-
-2. Once you have finished editing, save the file. Exit and reopen the MSYS2
-console. If successful, you should be able to run the `jtsdk-setup` and
-`build-hamlib`alias commands without sourcing first. Test to ensure both
-are functional.
-
-```bash
-# Test package installation alias, type
-jtsdk-setup
-
-# Test building Hamlib using the alias, type:
-build-hamlib
-
-```
-
 ## Command Summary
 
 The following alias commands are available to users after installation.
 
-| Command       | Description                            |
-| :------------ |:-------------------------------------- |
-| jtsdk-help    | Show this help menu      |
-| jtsdk-version | Show JTSDK64 MSYS2 Version Information |
-| jtsdk-setup   | Install Hamlib Build Dependencies      |
-| build-hamlib  | Build Hamlib Libraries and Binaries    |
+| Command       | Description                                      |
+| :------------ |:------------------------------------------------ |
+| jtsdk-help    | Show this help menu                              |
+| jtsdk-version | Show JTSDK64 MSYS2 Version Information           |
+| jtsdk-setup   | Install Hamlib Build Dependencies                |
+| build-hamlib  | Build Hamlib Libraries and Binaries              |
+| update-msys   | Upgrade all MSYS2 packages including runtimes    |
 
 ## Command Helpers
 
