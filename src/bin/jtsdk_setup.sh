@@ -111,8 +111,6 @@ update-msys () {
 # Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
 update-jtsdk () {
 
-    set -e
-
     clear ||:
     echo ''
     echo '---------------------------------------------------------------------'
@@ -121,7 +119,7 @@ update-jtsdk () {
     echo ''
     
     # If the source folder exists, pull and make install
-    if [ -f "~/src/jtsdk64-tools-msys2" ]
+    if [ -f ~/src/jtsdk64-tools-msys2 ]
     then
         cd ~/src/jtsdk64-tools-msys2
         git pull
@@ -129,9 +127,8 @@ update-jtsdk () {
         source ~/bin/jtsdk_setup.sh
     else
         mkdir -p ~/src && cd ~/src >/dev/null 2>&1
-        git clone 
         git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
-        cd ./jtsdk64-tools-msys2
+        cd ~/src/jtsdk64-tools-msys2
         make install
         source ~/bin/jtsdk_setup.sh
     fi
