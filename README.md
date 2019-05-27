@@ -57,7 +57,7 @@ dependencies.
 jtsdk-setup
 ```
 
-## Building Hamlib
+## Build Hamlib
 
 At the time of this writing, the build script is hard coded to use **Qt version
 5.12.2 and Mingw64 Tools GCC version 7.3.0**. As additional versions of Qt are
