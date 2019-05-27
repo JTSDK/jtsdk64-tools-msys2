@@ -139,6 +139,6 @@ update-jtsdk () {
     fi
 
     echo ''
-    echo 'To See New Commands, type jtsdk-help'
+    echo 'To See Command List, type jtsdk-help'
     echo ''
 }
