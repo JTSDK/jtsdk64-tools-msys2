@@ -28,7 +28,7 @@ Check out the code from `Github`, and install the scripts.
 
 ```bash
 # Checkout the code
-git clone git@github.com:KI7MT/jtsdk64-tools-msys2.git
+git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
 
 # Change directories and install
 cd jtsdk64-tools-msys2
