@@ -127,7 +127,7 @@ tool-check () {
 cd
 clear
 script-header
-package-date
+package-data
 tool-check
 
 if [ "$?" = "0" ];
