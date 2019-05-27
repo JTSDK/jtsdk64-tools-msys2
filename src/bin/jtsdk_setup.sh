@@ -1,3 +1,8 @@
+
+# Set Hamlib Build Alias
+alias build-hamlib="bash /home/$USER/bin/build-hamlib.sh"
+
+# Function: Install Hamlib Buuild Dependencies
 jtsdk-setup () {
 
     # exit on errors
