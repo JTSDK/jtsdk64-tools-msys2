@@ -52,8 +52,28 @@ mkdir -p $HOME/src/hamlib/{build,src} >/dev/null 2>&1
 # export tool chain paths
 export PATH="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin:$LIBUSBINC:$LIBUSBD:$PATH"
 
-# Tool Check Function ----------------------------------------------------------
-tool_check() {
+# Function: main script header -------------------------------------------------
+script-header () {
+	echo ''
+	echo '---------------------------------------------------------------'
+	echo -e ${C_C}" JTSDK64 Tools MSYS2 Hamlib Build Script"${C_NC}
+	echo '---------------------------------------------------------------'
+	echo ''
+	echo "Package ......... $PKG_NAME"
+	echo "User ............ $BUILDER"
+	echo "CPU Count ....... $CPUS"
+	echo "QT Version ...... $QTV"
+	echo "SRC Dir ......... $SRCD"
+	echo "Build Dir ....... $BUILDD"
+	echo "Install Prefix .. $PREFIX"
+	echo "Libusb Include .. $LIBUSBINC"
+	echo "Libusb DLL ...... $LIBUSBD"
+	echo "Tool Chain ...... $TC"
+	sleep 1
+}
+
+# Function: tool chain check ---------------------------------------------------
+tool-check () {
 	echo ''
 	echo '---------------------------------------------------------------'
 	echo -e ${C_Y}" CHECKING TOOL-CHAIN ( QT $QTV Enabled )"${C_NC}
@@ -100,7 +120,8 @@ tool_check() {
 # Run Tool Check
 cd
 clear
-tool_check
+script-header
+tool-check
 
 if [ "$?" = "0" ];
 then
