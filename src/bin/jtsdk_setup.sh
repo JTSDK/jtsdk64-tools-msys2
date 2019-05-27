@@ -91,7 +91,7 @@ jtsdk-help () {
     echo 'jtsdk-update         Upgrade JTSDK64 Tools MSYS2 Scripts'
     echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
     echo 'build-hamlib         Build Hamlib Libraries and Binaries'
-    echo 'update-msys          Upgrade all MSYS2 packages including runtimes'
+    echo 'msys-update          Upgrade all MSYS2 packages including runtimes'
     echo ''
 
 }
