@@ -23,21 +23,30 @@ CP		:=	/usr/bin/cp -u
 INSTALL	:=	install
 USER	:=	$(shell whoami)
 SCRIPTS	:=	$(wildcard ./src/bin/*.sh)
+DOCS	:=	$(wildcard ./src/docs/*.html)
 
 # Install Scripts
 install:
 	@clear ||:
 	@echo ''
-
 	@echo '---------------------------------------------'
 	@echo -e ${C_Y}"Installing $(PROGRAM) v$(VERSION)"${C_NC}
 	@echo '---------------------------------------------'
 	@echo ''
 	@${MKDIR} /home/$(USER)/{bin,src}
+	
+	# Install scripts
 	@for f in $(SCRIPTS) ; do \
 	echo " Installing $$f" ; \
 	${INSTALL} -m 755 $$f /home/$(USER)/bin ; \
 	done
+	
+	# Install docs
+	@for f in $(DOCS) ; do \
+	echo " Installing Doc $$f" ; \
+	${INSTALL} -m 755 $$f /home/$(USER)/docs ; \
+	done
+
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}
 
@@ -49,9 +58,18 @@ uninstall:
 	@echo -e ${C_Y}"Uninstalling $(PROGRAM) v$(VERSION)"${C_NC}
 	@echo '---------------------------------------------'
 	@echo ''
+
+	# Remove Scripts
 	@for f in $(SCRIPTS) ; do \
 	echo " Removing $$f" ; \
 	${RM} /home/$(USER)/bin/$$f ; \
 	done
+
+	# Remove Docs
+	@for f in $(DOCSS) ; do \
+	echo " Removing Doc $$f" ; \
+	${RM} /home/$(USER)/docs/$$f ; \
+	done
+
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}

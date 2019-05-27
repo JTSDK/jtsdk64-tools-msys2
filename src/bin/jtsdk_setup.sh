@@ -95,7 +95,7 @@ jtsdk-help () {
 
 }
 
-# Function: Update all MSYS2 Packages including runtimes
+# Function: Update all MSYS2 Packages including runtimes -----------------------
 update-msys () {
 
     clear ||:
@@ -106,4 +106,37 @@ update-msys () {
     echo ''
     pacman -Syuu --needed --noconfirm --disable-download-timeout
 
+}
+
+# Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
+update-jtsdk () {
+
+    set -e
+
+    clear ||:
+    echo ''
+    echo '---------------------------------------------------------------------'
+    echo -e ${C_Y}"UPGRADE JTSDK64 Tools MSYS Scripts"${C_NC}
+    echo '---------------------------------------------------------------------'
+    echo ''
+    
+    # If the source folder exists, pull and make install
+    if [ -f "~/src/jtsdk64-tools-msys2" ]
+    then
+        cd ~/src/jtsdk64-tools-msys2
+        git pull
+        make install
+        source ~/bin/jtsdk_setup.sh
+    else
+        mkdir -p ~/src && cd ~/src >/dev/null 2>&1
+        git clone 
+        git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
+        cd ./jtsdk64-tools-msys2
+        make install
+        source ~/bin/jtsdk_setup.sh
+    fi
+
+    echo ''
+    echo 'To See New Commands, type jtsdk-help'
+    echo ''
 }

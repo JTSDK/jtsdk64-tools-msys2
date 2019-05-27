@@ -104,9 +104,7 @@ To upgrade the `JTSDK64-Tools-MSYS2` scripts, use the following steps.
 
 ```bash
 # Open MSYS2 Console, the perform the following
-cd ~/src/jtsdk64-tools-msys2
-git pull
-make install
+upgrade-jtsdk
 
 # To list the help screen, type
 jtsdk-help
@@ -116,7 +114,7 @@ If you have removed the package from the src directory, perform a new checkout
 then install.
 
 ```bash
-# Open MSYS2 Console, the perform the following
+# Open MSYS2 Console, and perform the following
 mkdir -p ~/src
 cd ~/src
 git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
@@ -139,6 +137,7 @@ The following alias commands are available to users after installation.
 | jtsdk-setup   | Install Hamlib Build Dependencies                |
 | build-hamlib  | Build Hamlib Libraries and Binaries              |
 | update-msys   | Upgrade all MSYS2 packages                       |
+| update-jtsdk  | Upgrade JTSDK64 Tools MSYS2 Scripts              |
 
 ## Command Helpers
 
