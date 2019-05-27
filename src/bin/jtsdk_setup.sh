@@ -91,6 +91,7 @@ jtsdk-help () {
     echo 'jtsdk-setup          Install Hamlib Build Dependencies'
     echo 'build-hamlib         Build Hamlib Libraries and Binaries'
     echo 'update-msys          Upgrade all MSYS2 packages including runtimes'
+    echo 'update-jtsdk         Upgrade JTSDK64 Tools MSYS2 Scripts'
     echo ''
 
 }
@@ -119,7 +120,7 @@ update-jtsdk () {
     echo ''
     
     # If the source folder exists, pull and make install
-    echo 'Checking if repository exists'
+    echo 'Checking repository'
     if [ -f ~/src/jtsdk64-tools-msys2/Makefile ]
     then
         cd ~/src/jtsdk64-tools-msys2
