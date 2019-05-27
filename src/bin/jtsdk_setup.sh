@@ -101,7 +101,7 @@ update-msys () {
     clear ||:
     echo ''
     echo '---------------------------------------------------------------------'
-    echo -e ${C_Y}"UPGRADE MSYS2 ALL MSYS2 PACKAGES"${C_NC}
+    echo -e ${C_Y}"UPGRADE ALL MSYS2 PACKAGES"${C_NC}
     echo '---------------------------------------------------------------------'
     echo ''
     pacman -Syuu --needed --noconfirm --disable-download-timeout
