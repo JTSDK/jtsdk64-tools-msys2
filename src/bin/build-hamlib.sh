@@ -69,7 +69,6 @@ script-header () {
 	echo " Libusb Include .. $LIBUSBINC"
 	echo " Libusb DLL ...... $LIBUSBD"
 	echo " Tool Chain ...... $TC"
-	sleep 1
 }
 
 # Function: tool chain check ---------------------------------------------------
