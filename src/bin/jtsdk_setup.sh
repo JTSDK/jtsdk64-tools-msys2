@@ -150,7 +150,7 @@ echo '---------------------------------------------------------------------'
 echo -e ${C_C}"JTSDK64 Tools MSYS2"${C_NC}
 echo '---------------------------------------------------------------------'
 echo ''
-echo 'For HelpMenu, type: jtsdk-help'
+echo 'For Help Menu, type: jtsdk-help'
 echo ''
 echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
 echo 'This is free software; There is NO warranty; not even'
