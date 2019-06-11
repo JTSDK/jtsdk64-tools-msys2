@@ -3,7 +3,7 @@
 # Prerequsists : MSYS2 Shell Initialization
 
 PROGRAM	:=	JTSDK64 MSYS2 Scripts
-VERSION	:=	3.1.0
+VERSION	:=	3.1.0 Alpha
 AUTHOR	:=	Greg Beam, KI7MT
 LICENSE	:=	GPLv3
 BUGS	:=	https://github.com/KI7MT/jtsdk64-msys2/issues
@@ -69,3 +69,16 @@ uninstall:
 	done
 	@echo
 	@echo -e ${C_C}"Finished"${C_NC}
+
+# Cleanup Source Tree
+.PHONY: clean
+clean:
+	@clear ||:
+	@echo ''
+	@echo '---------------------------------------------'
+	@echo -e ${C_Y}"Cleaning $(PROGRAM) v$(VERSION)"${C_NC}
+	@echo '---------------------------------------------'
+	@echo ''
+	@echo 'There are no files that require configuration,'
+	@echo 'thus, no need for clean.'
+	@echo.
