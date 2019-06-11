@@ -81,4 +81,4 @@ clean:
 	@echo ''
 	@echo 'There are no files that require configuration,'
 	@echo 'thus, no need for clean.'
-	@echo.
+	@echo ''
