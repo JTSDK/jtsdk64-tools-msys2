@@ -141,3 +141,18 @@ jtsdk-update () {
     echo 'To See Command List, type jtsdk-help'
     echo ''
 }
+
+# Display Main Menu
+printf '\033[8;40;100t'
+clear ||:
+echo ''
+echo '---------------------------------------------------------------------'
+echo -e ${C_C}"JTSDK64 Tools MSYS2"${C_NC}
+echo '---------------------------------------------------------------------'
+echo ''
+echo 'For HelpMenu, type: jtsdk-help'
+echo ''
+echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
+echo 'This is free software; There is NO warranty; not even'
+echo 'for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
+echo ''
