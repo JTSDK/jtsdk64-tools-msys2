@@ -25,6 +25,9 @@ USER	:=	$(shell whoami)
 SCRIPTS	:=	$(wildcard ./src/bin/*.sh)
 DOCS	:=	$(wildcard ./src/docs/*.html)
 
+# All target simply installs the scripts, no need for configuration
+all: install
+
 # Install Scripts
 install:
 	@echo ''
