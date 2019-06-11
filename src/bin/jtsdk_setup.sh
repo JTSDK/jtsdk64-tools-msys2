@@ -146,9 +146,7 @@ jtsdk-update () {
 printf '\033[8;40;100t'
 clear ||:
 echo ''
-echo '--------------------------------------------------------'
 echo -e ${C_C}"JTSDK64 Tools MSYS2"${C_NC}
-echo '--------------------------------------------------------'
 echo ''
 echo 'For Help Menu, type: jtsdk-help'
 echo ''
