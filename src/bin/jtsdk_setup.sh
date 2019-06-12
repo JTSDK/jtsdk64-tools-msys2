@@ -141,7 +141,7 @@ jtsdk-update () {
     fi
 
     echo ''
-    echo 'To See Command List, type jtsdk-help'
+    echo -e "To See Command List, type: ${C_C}jtsdk-help${C_NC}"
     echo ''
 }
 
@@ -151,7 +151,7 @@ clear ||:
 echo ''
 echo -e ${C_C}"$JTSDK64_NAME using QT v$QTV"${C_NC}
 echo ''
-echo 'For Help Menu, type: jtsdk-help'
+echo -e "For Help Menu, type: ${C_C}jtsdk-help${C_NC}"
 echo ''
 echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
 echo 'This is free software; There is NO warranty; not even'
