@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 #
 # Title ........: build-hamlib.sh
 # Version ......: 3.1.0 Alpha
@@ -27,7 +27,7 @@
 set -e
 
 # Script Info
-VER="3.1.0 Alpha"
+VER="$JTSDK_VERSION"
 SCRIPT_NAME="JTSDK64 Tools MSYS2 Hamlib Build Script"
 
 # Foreground colors
@@ -43,18 +43,34 @@ TODAY=$(date +"%d-%m-%Y")
 TIMESTAMP=$(date +"%d-%m-%Y at %R")
 BUILDER=$(whoami)
 CPUS=`nproc --all`
-QTV="5.12.2"
 DRIVE=`cygpath -w ~ | head -c 1 | tr '[:upper:]' '[:lower:]'`
 SRCD="$HOME/src/hamlib"
 BUILDD="$SRCD/build"
 PREFIX="/$DRIVE/JTSDK64-Tools/tools/hamlib/qt/$QTV"
 LIBUSBINC="/$DRIVE/JTSDK64-Tools/tools/libusb/1.0.22/include"
 LIBUSBD="/$DRIVE/JTSDK64-Tools/tools/libusb/1.0.22/MinGW64/dll"
-TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
 mkdir -p $HOME/src/hamlib/{build,src} >/dev/null 2>&1
 
-# export tool chain paths
-export PATH="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin:$LIBUSBINC:$LIBUSBD:$PATH"
+# QT Tool Chain Paths
+QTV="$QTV"
+case  $QTVin
+	5.12.2)       
+		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
+		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
+		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
+		;;
+	5.12.3)
+		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
+		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
+		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
+		;;            
+	*)
+	echo "QT Version $QTV is unsupported at this time."
+	exit 1              
+esac
+
+# Export the final QT abd Lib USB paths
+export PATH="$TC:$QTDIR:$QTPLATFORM:$LIBUSBINC:$LIBUSBD:$PATH"
 
 # Function: main script header -------------------------------------------------
 script-header () {
@@ -72,6 +88,9 @@ package-data () {
 	echo " User ............ $BUILDER"
 	echo " CPU Count ....... $CPUS"
 	echo " QT Version ...... $QTV"
+	echo " QT Tools ........ $TC"
+	echo " QT Directory .... $QTDIR"
+	echo " QT Platform ..... $QTPLATFORM"
 	echo " SRC Dir ......... $SRCD"
 	echo " Build Dir ....... $BUILDD"
 	echo " Install Prefix .. $PREFIX"
@@ -88,7 +107,7 @@ tool-check () {
 	echo -e ${C_Y}" CHECKING TOOL-CHAIN [ QT $QTV ]"${C_NC}
 	echo '---------------------------------------------------------------'
 
-	# Setup array and perform simple version checks
+	# setup array and perform simple version checks
 	echo ''
 	array=( 'ar' 'nm' 'ld' 'gcc' 'g++' 'ranlib' )
 
@@ -123,7 +142,7 @@ tool-check () {
 # START MAIN SCRIPT                                                            #
 #------------------------------------------------------------------------------#
 
-# Run Tool Check
+# run tool check
 cd
 clear
 script-header
@@ -228,7 +247,7 @@ echo '----------------------------------------------------------------'
 echo ''
 make install-strip
 
-# Generate Build Info file
+# generate Build Info file
 if [[ $? = "0" ]];
 then
 	if [[ -f $PREFIX/$PKG_NAME.build.info ]]
