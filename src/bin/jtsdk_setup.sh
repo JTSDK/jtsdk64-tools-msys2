@@ -1,7 +1,7 @@
 # script version
 AUTHOR="Greg Beam, KI7MT"
 JTSDK64_VER="3.1.0 Alpha"
-JTSDK64_NAME="JTSDK64 Tools MSYS2 using $QTV"
+JTSDK64_NAME="JTSDK64 Tools MSYS2"
 
 # foreground colors ------------------------------------------------------------
 C_R='\033[01;31m'	# red
@@ -32,6 +32,8 @@ jtsdk-version () {
     clear ||:
     echo ''
     echo -e ${C_C}"$JTSDK64_NAME v$JTSDK64_VER"${C_NC}
+    echo ''
+    echo "Qt Environment : $QTV"
     echo ''
     echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
     echo 'This is free software; There is NO warranty; not even'
@@ -112,7 +114,7 @@ jtsdk-update () {
     clear ||:
     echo ''
     echo '---------------------------------------------------------------------'
-    echo -e ${C_Y}"UPGRADE JTSDK64 Tools MSYS Scripts"${C_NC}
+    echo -e ${C_Y}"UPGRADE $JTSDK_NAME Scripts"${C_NC}
     echo '---------------------------------------------------------------------'
     echo ''
     
@@ -146,7 +148,7 @@ jtsdk-update () {
 printf '\033[8;40;100t'
 clear ||:
 echo ''
-echo -e ${C_C}"JTSDK64 Tools MSYS2"${C_NC}
+echo -e ${C_C}"$JTSDK_NAME using $QTV"${C_NC}
 echo ''
 echo 'For Help Menu, type: jtsdk-help'
 echo ''
