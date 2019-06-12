@@ -1,7 +1,7 @@
 # script version
 AUTHOR="Greg Beam, KI7MT"
 JTSDK64_VER="3.1.0 Alpha"
-JTSDK64_NAME="JTSDK64 Tools MSYS2"
+JTSDK64_NAME="JTSDK64 Tools MSYS2 using $QTV"
 
 # foreground colors ------------------------------------------------------------
 C_R='\033[01;31m'	# red
