@@ -86,12 +86,12 @@ jtsdk-help () {
     echo ''
     echo 'Command              Description'
     echo '-----------------------------------------------------------'
-    echo 'jtsdk-help           Show this help Menu'
-    echo 'jtsdk-setup          Install Hamlib Build Dependencies'
-    echo 'jtsdk-update         Upgrade JTSDK64 Tools MSYS2 Scripts'
-    echo 'jtsdk-version        Show JTSDK64 MSYS2 Version Information'
-    echo 'build-hamlib         Build Hamlib Libraries and Binaries'
-    echo 'msys-update          Upgrade all MSYS2 packages including runtimes'
+    echo -e ${C_C}"jtsdk-help${C_NC}           Show this help Menu"
+    echo -e ${C_C}"jtsdk-setup${C_NC}          Install Hamlib Build Dependencies"
+    echo -e ${C_C}"jtsdk-update${C_NC}         Upgrade JTSDK64 Tools MSYS2 Scripts"
+    echo -e ${C_C}"jtsdk-version${C_NC}        Show JTSDK64 MSYS2 Version Information"
+    echo -e ${C_C}"build-hamlib${C_NC}         Build Hamlib Libraries and Binaries"
+    echo -e ${C_C}"msys-update${C_NC}          Upgrade all MSYS2 packages including runtimes"
     echo ''
 
 }
