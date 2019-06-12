@@ -31,13 +31,14 @@ jtsdk-version () {
 
     clear ||:
     echo ''
-    echo -e ${C_C}"$JTSDK64_NAME v$JTSDK64_VER"${C_NC}
+    echo -e ${C_C}"$JTSDK64_NAME "${C_NC}
     echo ''
-    echo "Qt Environment : $QTV"
+    echo " JTSDK64 Version .. v$JTSDK64_VER"
+    echo " Qt Environment ... $QTV"
     echo ''
-    echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
-    echo 'This is free software; There is NO warranty; not even'
-    echo 'for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
+    echo " Copyright (C) 2013-2019, GPLv3, $AUTHOR"
+    echo ' This is free software; There is NO warranty; not even'
+    echo ' for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
     echo ''
 
 }
@@ -114,7 +115,7 @@ jtsdk-update () {
     clear ||:
     echo ''
     echo '---------------------------------------------------------------------'
-    echo -e ${C_Y}"UPGRADE $JTSDK_NAME Scripts"${C_NC}
+    echo -e ${C_Y}"UPGRADE $JTSDK64_NAME Scripts"${C_NC}
     echo '---------------------------------------------------------------------'
     echo ''
     
@@ -148,7 +149,7 @@ jtsdk-update () {
 printf '\033[8;40;100t'
 clear ||:
 echo ''
-echo -e ${C_C}"$JTSDK_NAME using $QTV"${C_NC}
+echo -e ${C_C}"$JTSDK64_NAME using QT v$QTV"${C_NC}
 echo ''
 echo 'For Help Menu, type: jtsdk-help'
 echo ''
