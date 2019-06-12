@@ -53,7 +53,7 @@ mkdir -p $HOME/src/hamlib/{build,src} >/dev/null 2>&1
 
 # QT Tool Chain Paths
 QTV="$QTV"
-case  $QTVin
+case $QTV in
 	5.12.2)       
 		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
 		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
