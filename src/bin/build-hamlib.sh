@@ -331,7 +331,7 @@ $PREFIX/bin/rigctl.exe --version
 # finished
 echo ''
 echo '----------------------------------------------------------------'
-echo -e ${C_G} " FINISHED INSTALLING [ $PKG_NAME ]"${C_NC}
+echo -e ${C_G} " FINISHED COMPILING [ $PKG_NAME ]"${C_NC}
 echo '----------------------------------------------------------------'
 echo ''
 package-data
