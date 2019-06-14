@@ -183,7 +183,6 @@ function menu () {
                 echo ''
                 read -p "Press enter to continue..." ;;
             e|E|q|Q)
-                clear
                 greeting_message
                 break ;;
             *)
