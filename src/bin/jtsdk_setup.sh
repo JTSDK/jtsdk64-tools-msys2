@@ -27,7 +27,7 @@ alias la='ls -A'                              # all but . and ..
 alias build-hamlib="bash /home/$USER/bin/build-hamlib.sh"
 
 # Function: Help Menu ---------------------------------------------------------
-jt64help () {
+function jt64help () {
 
     clear ||:
     echo ''
@@ -50,7 +50,7 @@ jt64help () {
 }
 
 # Function: install hamlib build dependencies ----------------------------------
-jt64setup () {
+function jt64setup () {
 
     # make directories
     mkdir -p $HOME/src > /dev/null 2>&1
@@ -81,7 +81,7 @@ jt64setup () {
 }
 
 # Function: version information ------------------------------------------------
-jt64version () {
+function jt64version () {
 
     clear ||:
     echo ''
@@ -98,7 +98,7 @@ jt64version () {
 }
 
 # Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
-jt64update () {
+function jt64update () {
 
     clear ||:
     echo ''
@@ -131,7 +131,7 @@ jt64update () {
 }
 
 # Function: Update all MSYS2 Packages including runtimes -----------------------
-msys-update () {
+function msys-update () {
 
     clear ||:
     echo ''
@@ -144,7 +144,7 @@ msys-update () {
 }
 
 # menu for all commands --------------------------------------------------------
-menu () {
+function menu () {
     trap '' 2  # ignore control + c
     while true
     do
@@ -152,14 +152,14 @@ menu () {
         echo "-------------------------------------"
         echo -e ${C_C}"JTSKD64 Tools Main Menu"${C_NC}
         echo  "------------------------------------"
-        echo " 1) List help commands"
-        echo " 2) Install hamlib dependencies"
-        echo " 3) Update scripts"
-        echo " 4) Print version information"
-        echo " 5) Build hamlib"
-        echo " 6) Update msys2 packages"
-        echo " e) Enter e or q to exit"
-        echo -e "Enter your selection, then hit <return>: "
+        echo " 1. List help commands"
+        echo " 2. Install hamlib dependencies"
+        echo " 3. Update scripts"
+        echo " 4. Print version information"
+        echo " 5. Build hamlib"
+        echo " 6. Update msys2 packages"
+        echo " e. Enter 'e' or 'q' to exit"
+        echo -e "Enter your selection, then hit <return>:"
         echo ''
         read answer
         case "$answer" in
@@ -191,7 +191,7 @@ menu () {
     done
 }
 
-greeting_message (){
+function greeting_message (){
     # Display Main Menu
     printf '\033[8;40;100t'
     clear ||:
@@ -207,6 +207,22 @@ greeting_message (){
     echo ''
 
 }
+
+# set title function
+# Credit: https://superuser.com/questions/362227/how-to-change-the-title-of-the-mintty-window
+function settitle() {
+      export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+      echo -ne "\e]0;$1\a"
+}
+
+# set title path function
+# Credit: https://superuser.com/questions/362227/how-to-change-the-title-of-the-mintty-window
+function settitlepath() {
+      export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+}
+
+# set custom title
+settitle "$JTSDK64_NAME"
 
 # print the greeting message
 greeting_message
