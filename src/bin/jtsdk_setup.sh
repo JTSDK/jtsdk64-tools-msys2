@@ -26,19 +26,25 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias build-hamlib="bash /home/$USER/bin/build-hamlib.sh"
 
-# Function: version information ------------------------------------------------
-jt64version () {
+# Function: Help Menu ---------------------------------------------------------
+jt64help () {
 
     clear ||:
     echo ''
-    echo -e ${C_C}"$JTSDK64_NAME "${C_NC}
+    echo -e ${C_C}"$JTSDK64_NAME Help Menu"${C_NC}
     echo ''
-    echo " JTSDK64 Version .. v$JTSDK64_VER"
-    echo " Qt Environment ... $QTV"
+    echo 'The following alias commands are available for direct entry'
+    echo 'via the MSYS2 Console:'
     echo ''
-    echo " Copyright (C) 2013-2019, GPLv3, $AUTHOR"
-    echo ' This is free software; There is NO warranty; not even'
-    echo ' for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
+    echo 'Command              Description'
+    echo '-----------------------------------------------------------'
+    echo -e ${C_C}"jt64help${C_NC}          Show this help Menu"
+    echo -e ${C_C}"jt64setup${C_NC}         Install Hamlib Build Dependencies"
+    echo -e ${C_C}"jt64update${C_NC}        Upgrade JTSDK64 Tools MSYS2 Scripts"
+    echo -e ${C_C}"jt64version${C_NC}       Show JTSDK64 MSYS2 Version Information"
+    echo -e ${C_C}"build-hamlib${C_NC}      Build Hamlib Libraries and Binaries"
+    echo -e ${C_C}"msys-update${C_NC}       Upgrade all MSYS2 packages including runtimes"
+    echo -e ${C_C}"menu${C_NC}              Use menu for commands"
     echo ''
 
 }
@@ -74,44 +80,25 @@ jt64setup () {
 
 }
 
-# Function: Help Menu ---------------------------------------------------------
-jt64help () {
+# Function: version information ------------------------------------------------
+jt64version () {
 
     clear ||:
     echo ''
-    echo -e ${C_C}"$JTSDK64_NAME Help Menu"${C_NC}
+    echo -e ${C_C}"$JTSDK64_NAME "${C_NC}
     echo ''
-    echo 'The following alias commands are available for direct entry'
-    echo 'via the MSYS2 Console:'
+    echo " JTSDK64 Version .. v$JTSDK64_VER"
+    echo " Qt Environment ... $QTV"
     echo ''
-    echo 'Command              Description'
-    echo '-----------------------------------------------------------'
-    echo -e ${C_C}"jt64help${C_NC}          Show this help Menu"
-    echo -e ${C_C}"jt64setup${C_NC}         Install Hamlib Build Dependencies"
-    echo -e ${C_C}"jt64update${C_NC}        Upgrade JTSDK64 Tools MSYS2 Scripts"
-    echo -e ${C_C}"jt64version${C_NC}       Show JTSDK64 MSYS2 Version Information"
-    echo -e ${C_C}"build-hamlib${C_NC}      Build Hamlib Libraries and Binaries"
-    echo -e ${C_C}"msys-update${C_NC}       Upgrade all MSYS2 packages including runtimes"
-    echo -e ${C_C}"menu${C_NC}              Use menu for commands"
+    echo " Copyright (C) 2013-2019, GPLv3, $AUTHOR"
+    echo ' This is free software; There is NO warranty; not even'
+    echo ' for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
     echo ''
-
-}
-
-# Function: Update all MSYS2 Packages including runtimes -----------------------
-msys-update () {
-
-    clear ||:
-    echo ''
-    echo '---------------------------------------------------------------------'
-    echo -e ${C_Y}"UPGRADE ALL MSYS2 PACKAGES"${C_NC}
-    echo '---------------------------------------------------------------------'
-    echo ''
-    pacman -Syuu --needed --noconfirm --disable-download-timeout
 
 }
 
 # Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
-jtupdate () {
+jt64update () {
 
     clear ||:
     echo ''
@@ -144,6 +131,19 @@ jtupdate () {
     echo ''
     echo -e "To See Command List, type: ${C_C}jtsdk-help${C_NC}"
     echo ''
+}
+
+# Function: Update all MSYS2 Packages including runtimes -----------------------
+msys-update () {
+
+    clear ||:
+    echo ''
+    echo '---------------------------------------------------------------------'
+    echo -e ${C_Y}"UPGRADE ALL MSYS2 PACKAGES"${C_NC}
+    echo '---------------------------------------------------------------------'
+    echo ''
+    pacman -Syuu --needed --noconfirm --disable-download-timeout
+
 }
 
 # menu for all commands --------------------------------------------------------
