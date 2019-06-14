@@ -150,7 +150,7 @@ menu () {
     do
         clear ||:
         echo "-------------------------------------"
-        echo -e ${C_C}"JTSKD64 Tools Menu"${C_NC}
+        echo -e ${C_C}"JTSKD64 Tools Main Menu"${C_NC}
         echo  "------------------------------------"
         echo " 1) List help commands"
         echo " 2) Install hamlib dependencies"
