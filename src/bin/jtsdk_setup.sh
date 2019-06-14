@@ -128,9 +128,6 @@ jt64update () {
         cd ~
     fi
 
-    echo ''
-    echo -e "To See Command List, type: ${C_C}jtsdk-help${C_NC}"
-    echo ''
 }
 
 # Function: Update all MSYS2 Packages including runtimes -----------------------
