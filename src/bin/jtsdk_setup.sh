@@ -184,22 +184,29 @@ menu () {
                 read -p "Press enter to continue..." ;;
             e|E|q|Q)
                 clear
+                greeting_message
                 break ;;
             *)
         esac
     done
 }
 
-# Display Main Menu
-printf '\033[8;40;100t'
-clear ||:
-echo ''
-echo -e ${C_C}"$JTSDK64_NAME using QT v$QTV"${C_NC}
-echo ''
-echo -e "For main menu, type ..: ${C_C}menu${C_NC}"
-echo -e "For Help Menu, type ..: ${C_C}jt64help${C_NC}"
-echo ''
-echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
-echo 'This is free software; There is NO warranty; not even'
-echo 'for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
-echo ''
+greeting_mesage (){
+    # Display Main Menu
+    printf '\033[8;40;100t'
+    clear ||:
+    echo ''
+    echo -e ${C_C}"$JTSDK64_NAME using QT v$QTV"${C_NC}
+    echo ''
+    echo -e "For main menu, type ..: ${C_C}menu${C_NC}"
+    echo -e "For Help Menu, type ..: ${C_C}jt64help${C_NC}"
+    echo ''
+    echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
+    echo 'This is free software; There is NO warranty; not even'
+    echo 'for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.'
+    echo ''
+
+}
+
+# print the greeting message
+greeting
