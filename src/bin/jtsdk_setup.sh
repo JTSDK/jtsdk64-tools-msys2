@@ -191,7 +191,7 @@ menu () {
     done
 }
 
-greeting_mesage (){
+greeting_message (){
     # Display Main Menu
     printf '\033[8;40;100t'
     clear ||:
@@ -209,4 +209,4 @@ greeting_mesage (){
 }
 
 # print the greeting message
-greeting
+greeting_message
