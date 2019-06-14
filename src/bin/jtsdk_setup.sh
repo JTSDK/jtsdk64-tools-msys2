@@ -27,7 +27,7 @@ alias la='ls -A'                              # all but . and ..
 alias build-hamlib="bash /home/$USER/bin/build-hamlib.sh"
 
 # Function: version information ------------------------------------------------
-jtsdk-version () {
+jt64version () {
 
     clear ||:
     echo ''
@@ -44,7 +44,7 @@ jtsdk-version () {
 }
 
 # Function: install hamlib build dependencies ----------------------------------
-jtsdk-setup () {
+jt64setup () {
 
     # make directories
     mkdir -p $HOME/src > /dev/null 2>&1
@@ -75,7 +75,7 @@ jtsdk-setup () {
 }
 
 # Function: Help Menu ---------------------------------------------------------
-jtsdk-help () {
+jt64help () {
 
     clear ||:
     echo ''
@@ -86,12 +86,13 @@ jtsdk-help () {
     echo ''
     echo 'Command              Description'
     echo '-----------------------------------------------------------'
-    echo -e ${C_C}"jtsdk-help${C_NC}           Show this help Menu"
-    echo -e ${C_C}"jtsdk-setup${C_NC}          Install Hamlib Build Dependencies"
-    echo -e ${C_C}"jtsdk-update${C_NC}         Upgrade JTSDK64 Tools MSYS2 Scripts"
-    echo -e ${C_C}"jtsdk-version${C_NC}        Show JTSDK64 MSYS2 Version Information"
-    echo -e ${C_C}"build-hamlib${C_NC}         Build Hamlib Libraries and Binaries"
-    echo -e ${C_C}"msys-update${C_NC}          Upgrade all MSYS2 packages including runtimes"
+    echo -e ${C_C}"jt64help${C_NC}          Show this help Menu"
+    echo -e ${C_C}"jt64setup${C_NC}         Install Hamlib Build Dependencies"
+    echo -e ${C_C}"jt64update${C_NC}        Upgrade JTSDK64 Tools MSYS2 Scripts"
+    echo -e ${C_C}"jt64version${C_NC}       Show JTSDK64 MSYS2 Version Information"
+    echo -e ${C_C}"build-hamlib${C_NC}      Build Hamlib Libraries and Binaries"
+    echo -e ${C_C}"msys-update${C_NC}       Upgrade all MSYS2 packages including runtimes"
+    echo -e ${C_C}"menu${C_NC}              Use menu for commands"
     echo ''
 
 }
@@ -110,7 +111,7 @@ msys-update () {
 }
 
 # Function: Update JTSDK64 Tools MSYS2 Scripts ---------------------------------
-jtsdk-update () {
+jtupdate () {
 
     clear ||:
     echo ''
@@ -145,13 +146,61 @@ jtsdk-update () {
     echo ''
 }
 
+# menu for all commands --------------------------------------------------------
+menu () {
+    trap '' 2  # ignore control + c
+    while true
+    do
+        clear ||:
+        echo "-------------------------------------"
+        echo -e ${C_C}"JTSKD64 Tools Menu"${C_NC}
+        echo  "------------------------------------"
+        echo " 1) List help commands"
+        echo " 2) Install hamlib dependencies"
+        echo " 3) Update scripts"
+        echo " 4) Print version information"
+        echo " 5) Build hamlib"
+        echo " 6) Update msys2 packages"
+        echo " e) Enter e or q to exit"
+        echo -e "Enter your selection, then hit <return>: "
+        echo ''
+        read answer
+        case "$answer" in
+            1)
+                jt64help
+                read -p "Press enter to continue..." ;;
+            2)
+                jt64setup
+                read -p "Press enter to continue..." ;;
+            3) 
+                jt64update
+                read -p "Press enter to continue..." ;;
+            4) 
+                jt64version
+                read -p "Press enter to continue..." ;;
+            5) 
+                build-hamlib
+                read -p "Press enter to continue..." ;;
+            6) 
+                msys-update
+                echo ''
+                read -p "Press enter to continue..." ;;
+            e|E|q|Q)
+                clear
+                break ;;
+            *)
+        esac
+    done
+}
+
 # Display Main Menu
 printf '\033[8;40;100t'
 clear ||:
 echo ''
 echo -e ${C_C}"$JTSDK64_NAME using QT v$QTV"${C_NC}
 echo ''
-echo -e "For Help Menu, type: ${C_C}jtsdk-help${C_NC}"
+echo -e "For main menu, type ..: ${C_C}menu${C_NC}"
+echo -e "For Help Menu, type ..: ${C_C}jt64help${C_NC}"
 echo ''
 echo "Copyright (C) 2013-2019, GPLv3, $AUTHOR"
 echo 'This is free software; There is NO warranty; not even'
