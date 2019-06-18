@@ -12,7 +12,7 @@
 # build-hamlib.sh is free software: you can redistribute it
 # and/or modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation either version 3 of the
-# License, or (at your option) any later version. 
+# License, or (at your option) any later version.
 #
 # build-hamlib.sh is distributed in the hope that it will be
 # useful, but WITHOUT ANY WARRANTY; without even the implied warranty
@@ -54,7 +54,7 @@ mkdir -p $HOME/src/hamlib/{build,src} >/dev/null 2>&1
 # QT Tool Chain Paths
 QTV="$QTV"
 case $QTV in
-	5.12.2)       
+	5.12.2)
 		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
 		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
 		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
@@ -63,10 +63,20 @@ case $QTV in
 		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
 		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
 		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
-		;;            
+		;;
+	5.12.4)
+		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
+		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
+		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
+		;;
+	5.13.0)
+		TC="/$DRIVE/JTSDK64-Tools/tools/Qt/Tools/mingw730_64/bin"
+		QTDIR="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/mingw73_64/bin"
+		QTPLATFORM="/$DRIVE/JTSDK64-Tools/tools/Qt/$QTV/plugins/platforms"
+		;;
 	*)
 	echo "QT Version $QTV is unsupported at this time."
-	exit 1              
+	exit 1
 esac
 
 # Export the final QT abd Lib USB paths
@@ -114,9 +124,9 @@ tool-check () {
 	for i in "${array[@]}"
 	do
 		"$i" --version >/dev/null 2>&1
-		
+
 		if [ "$?" = "1" ];
-		then 
+		then
 			echo -en " $i check" && echo -e ${C_R}' FAILED'${C_NC}
 			echo ''
 			echo ' If you have not sourced one of the two options, try'
@@ -174,7 +184,7 @@ then
 	git pull
 else
 	cd "$SRCD"
-		
+
 	# ensure the directory is removed first
     if [[ -d $SRCD/src ]]
     then
@@ -308,7 +318,7 @@ echo ''
 echo "* $LIBUSBD/libusb-1.0.dll"
 cp -u "$LIBUSBD/libusb-1.0.dll" "$PREFIX/bin"
 echo "* $TC/libwinpthread-1.dll"
-cp -u "$TC/libwinpthread-1.dll" "$PREFIX/bin" 
+cp -u "$TC/libwinpthread-1.dll" "$PREFIX/bin"
 echo ''
 
 # update pokgconfig
