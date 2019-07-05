@@ -3,11 +3,11 @@
 # Prerequsists : MSYS2 Shell Initialization
 
 PROGRAM	:=	JTSDK64 MSYS2 Scripts
-VERSION	:=	3.1.0 Alpha
+VERSION	:=	3.1.0
 AUTHOR	:=	Greg Beam, KI7MT
 LICENSE	:=	GPLv3
-BUGS	:=	https://github.com/KI7MT/jtsdk64-msys2/issues
-WEB		:=	https://github.com/KI7MT/jtsdk-msys2
+BUGS	:=	https://github.com/KI7MT/jtsdk64-tools-msys2/issues
+WEB		:=	https://github.com/KI7MT/jtsdk64-tools-msys2.git
 
 # foreground colors
 C_R='\033[01;31m'	# red

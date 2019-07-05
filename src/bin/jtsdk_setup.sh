@@ -1,6 +1,6 @@
 # script version
 AUTHOR="Greg Beam, KI7MT"
-JTSDK64_VER="3.1.0 Alpha"
+JTSDK64_VER="3.1.0"
 JTSDK64_NAME="JTSDK64 Tools MSYS2"
 
 # foreground colors ------------------------------------------------------------
@@ -106,7 +106,7 @@ function jt64update () {
     echo -e ${C_Y}"UPGRADE $JTSDK64_NAME Scripts"${C_NC}
     echo '---------------------------------------------------------------------'
     echo ''
-    
+
     # If the source folder exists, pull and make install
     echo 'Checking repository'
     if [ -f ~/src/jtsdk64-tools-msys2/Makefile ]
@@ -119,7 +119,7 @@ function jt64update () {
     else
         echo 'Cloning new repository'
         rm -rf ~/src/jtsdk64-tools-msys2 > /dev/null 2>&1
-        mkdir -p ~/src >/dev/null 2>&1 
+        mkdir -p ~/src >/dev/null 2>&1
         cd ~/src >/dev/null 2>&1
         git clone https://github.com/KI7MT/jtsdk64-tools-msys2.git
         cd ~/src/jtsdk64-tools-msys2
@@ -169,16 +169,16 @@ function menu () {
             2)
                 jt64setup
                 read -p "Press enter to continue..." ;;
-            3) 
+            3)
                 jt64update
                 read -p "Press enter to continue..." ;;
-            4) 
+            4)
                 jt64version
                 read -p "Press enter to continue..." ;;
-            5) 
+            5)
                 build-hamlib
                 read -p "Press enter to continue..." ;;
-            6) 
+            6)
                 msys-update
                 echo ''
                 read -p "Press enter to continue..." ;;
